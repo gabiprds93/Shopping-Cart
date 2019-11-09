@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Router } from "@reach/router";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import OrderPage from './Pages/OrderPage';
+import ThankYouPage from './Pages/ThankYouPage';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const App = (
+  <Router>
+    <OrderPage path='/' />
+    <ThankYouPage path='thanks' />
+  </Router>
+)
+
+ReactDOM.render(App, document.getElementById('root'));
