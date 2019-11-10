@@ -7,11 +7,17 @@ import imgCart from '../Assets/img/img-cart.png'
 import Product from './Product'
 
 const Container = styled.div`
-  align-items: center;
   background: #fff;
   border-radius: 4px;
+  overflow: auto;
+  text-align: center;
+`;
+
+const EmptyCart = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
   padding: 0 60px;
   text-align: center;
@@ -68,13 +74,12 @@ const Cart = ({ value }) => {
       {value !== '' ? 
         <ProductsQuery value={value}/>
       :
-        <React.Fragment>
+        <EmptyCart>
           <img alt='cart' src={imgCart} />
           <H2>Your cart is empty</H2>
           <Text>Seems like you haven’t chosen what to buy...</Text>
-        </React.Fragment>
+        </EmptyCart>
       }
-      
     </Container>
   )
 }
