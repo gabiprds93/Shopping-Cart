@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+
+import SubmitButton from './SubmitButton';
 
 const Container = styled.div`
   background: #fff;
@@ -36,24 +38,27 @@ const Pricing = ({productsPrice}) => {
   }, [productsPrice, shippingCost])
 
   return (
-    <Container>
-      <PriceLine>
-        <span>Products</span>
-        <span>${productsPrice.toFixed(2)}</span>
-      </PriceLine>
-      <PriceLine className='shippingCost'>
-        <span>Shipping cost</span>
-        <span>${shippingCost.toFixed(2)}</span>
-      </PriceLine>
-      <PriceLine>
-        <span>Taxes</span>
-        <span>${taxes.toFixed(2)}</span>
-      </PriceLine>
-      <PriceLine className='total'>
-        <span>Total</span>
-        <span>${totalPrice.toFixed(2)}</span>
-      </PriceLine>
-    </Container>
+    <Fragment>
+      <Container>
+        <PriceLine>
+          <span>Products</span>
+          <span>${productsPrice.toFixed(2)}</span>
+        </PriceLine>
+        <PriceLine className='shippingCost'>
+          <span>Shipping cost</span>
+          <span>${shippingCost.toFixed(2)}</span>
+        </PriceLine>
+        <PriceLine>
+          <span>Taxes</span>
+          <span>${taxes.toFixed(2)}</span>
+        </PriceLine>
+        <PriceLine className='total'>
+          <span>Total</span>
+          <span>${totalPrice.toFixed(2)}</span>
+        </PriceLine>
+      </Container>
+      <SubmitButton />
+    </Fragment>
   )
 }
 

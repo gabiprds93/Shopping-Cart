@@ -48,7 +48,7 @@ const OrderPage = () => {
   const addProduct = (price) => {
     setProductsPrice(productsPrice + price)
   }
-  
+
   return (
     <Container>
       <InputContainer>
@@ -59,7 +59,6 @@ const OrderPage = () => {
         <div>
           <DeliveryDate />
           <Pricing productsPrice={productsPrice}/>
-          <SubmitButton />
         </div>
       </Wrapper>
     </Container>
