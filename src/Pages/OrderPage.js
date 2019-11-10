@@ -39,13 +39,17 @@ const Wrapper = styled.div`
 `;
 
 const OrderPage = () => {
+  const [searchText, setSearchText] = React.useState('')
+  const inputHandleChange = (text) => {
+    setSearchText(text)
+  }
   return (
     <Container>
       <InputContainer>
-        <Searcher />
+        <Searcher inputValue={searchText} inputHandleChange={inputHandleChange}/>
       </InputContainer>
       <Wrapper>
-        <Cart />
+        <Cart value={searchText}/>
         <div>
           <DeliveryDate />
           <Pricing />

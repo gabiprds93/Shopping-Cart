@@ -12,9 +12,9 @@ const Input = styled.input`
   width: 100%;
 `;
 
-const Searcher = () => {
+const Searcher = ({ inputValue, inputHandleChange }) => {
   return (
-    <Input type='text' placeholder='Search Products'/>
+    <Input type='text' placeholder='Search Products' value={inputValue} onChange={event => inputHandleChange(event.target.value)}/>
   )
 }
 

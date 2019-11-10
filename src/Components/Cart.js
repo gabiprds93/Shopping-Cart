@@ -30,7 +30,7 @@ const ProductsQuery = () => {
   return (
     <Query query={gql`
       {
-        amiibos {
+        products {
           id
           name
         }
@@ -41,15 +41,16 @@ const ProductsQuery = () => {
         if(loading) return <p>Loading...</p>
         if(error) return <p>Error</p>
 
-        return data.amiibos.map(amiibo => {
-          return <p key={amiibo.id}>{amiibo.name}</p>
+        return data.products.map(product => {
+          return <p key={product.id}>{product.name}</p>
         })
       }}
     </Query>
   );
 };
 
-const Cart = () => {
+const Cart = ({ value }) => {
+  console.log(value)
   return (
     <Container>
       <img alt='cart' src={imgCart} />
