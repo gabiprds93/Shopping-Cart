@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { gql } from 'apollo-boost';
+import { Query } from 'react-apollo';
 
 import imgCart from '../Assets/img/img-cart.png'
 
@@ -24,12 +26,36 @@ const Text = styled.span`
   line-height: 24px;
 `;
 
+const ProductsQuery = () => {
+  return (
+    <Query query={gql`
+      {
+        amiibos {
+          id
+          name
+        }
+      }
+    `}
+    >
+      {({ loading, error, data }) => {
+        if(loading) return <p>Loading...</p>
+        if(error) return <p>Error</p>
+
+        return data.amiibos.map(amiibo => {
+          return <p key={amiibo.id}>{amiibo.name}</p>
+        })
+      }}
+    </Query>
+  );
+};
+
 const Cart = () => {
   return (
     <Container>
       <img alt='cart' src={imgCart} />
       <H2>Your cart is empty</H2>
       <Text>Seems like you haven’t chosen what to buy...</Text>
+      <ProductsQuery/>
     </Container>
   )
 }
