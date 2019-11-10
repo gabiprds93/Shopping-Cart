@@ -19,7 +19,7 @@ const DeliveryDate = () => {
   return (
     <Container>
       <img alt='car' src={imgCar} />
-      <Text>Buy now and get it by 05/24/19</Text>
+      <Text>Buy now and get it by <b>05/24/19</b></Text>
     </Container>
   )
 }

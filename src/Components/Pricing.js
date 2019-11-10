@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  background: #fff;
   padding: 16px;
 `;
 
@@ -11,6 +12,7 @@ const PriceLine = styled.div`
   display: flex;
   font-weight: ${({ className }) => (className === 'total' ? '600' : 'normal')};
   justify-content: space-between;
+  margin: ${({ className }) => (className === 'total' ? '16px 0 0' : '0 0 8px')};
   padding: 3px 0; 
   & span:first-child {
     font-weight: ${({ className }) => (className ? '600' : 'normal')};

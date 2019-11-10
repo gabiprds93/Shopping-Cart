@@ -5,10 +5,10 @@ import imgCart from '../Assets/img/img-cart.png'
 
 const Container = styled.div`
   align-items: center;
+  background: #fff;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  font-family: Open Sans;
   justify-content: center;
   padding: 0 60px;
   text-align: center;

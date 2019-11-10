@@ -6,11 +6,12 @@ const Button = styled.button`
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
   border-radius: 4px;
+  color: #C1C1C1;
   font-weight: 600;
   font-size: 16px;
   height: 48px;
   line-height: 24px;
-  color: #C1C1C1;
+  width: 100%;
 `;
 
 const SubmitButton = () => {
