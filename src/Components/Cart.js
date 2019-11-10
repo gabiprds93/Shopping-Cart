@@ -33,7 +33,7 @@ const Text = styled.span`
   line-height: 24px;
 `;
 
-const ProductsQuery = ({value}) => {
+const ProductsQuery = ({value, addProduct}) => {
   return (
     <Query query={gql`
       {
@@ -53,7 +53,7 @@ const ProductsQuery = ({value}) => {
         let filterProducts = data.products.filter(product => {
           return product.name.toLowerCase().includes(value.toLowerCase()) 
         }).map(product => {
-          return <Product key={product.id} values={product} />
+          return <Product key={product.id} values={product} addProduct={addProduct}/>
         })
         console.log(filterProducts)
         if(filterProducts.length){
@@ -67,12 +67,11 @@ const ProductsQuery = ({value}) => {
   );
 };
 
-const Cart = ({ value }) => {
-  console.log(value)
+const Cart = ({ searchText, addProduct }) => {
   return (
     <Container>
-      {value !== '' ? 
-        <ProductsQuery value={value}/>
+      {searchText !== '' ? 
+        <ProductsQuery value={searchText} addProduct={addProduct}/>
       :
         <EmptyCart>
           <img alt='cart' src={imgCart} />

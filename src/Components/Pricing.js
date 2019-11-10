@@ -22,24 +22,36 @@ const PriceLine = styled.div`
   }
 `;
 
-const Pricing = () => {
+const Pricing = ({productsPrice}) => {
+  const shippingCost = React.useMemo(() => {
+    return (productsPrice * 0.10)
+  }, [productsPrice]) 
+
+  const taxes = React.useMemo(() => {
+    return (productsPrice * 0.18)
+  }, [productsPrice])
+
+  const totalPrice = React.useMemo(() => {
+    return (productsPrice + shippingCost)
+  }, [productsPrice, shippingCost])
+
   return (
     <Container>
       <PriceLine>
         <span>Products</span>
-        <span>$0.00</span>
+        <span>${productsPrice.toFixed(2)}</span>
       </PriceLine>
       <PriceLine className='shippingCost'>
         <span>Shipping cost</span>
-        <span>$0.00</span>
+        <span>${shippingCost.toFixed(2)}</span>
       </PriceLine>
       <PriceLine>
         <span>Taxes</span>
-        <span>$0.00</span>
+        <span>${taxes.toFixed(2)}</span>
       </PriceLine>
       <PriceLine className='total'>
         <span>Total</span>
-        <span>$0.00</span>
+        <span>${totalPrice.toFixed(2)}</span>
       </PriceLine>
     </Container>
   )

@@ -32,7 +32,7 @@ const Button = styled.button`
   width: 48px;
 `
 
-const Product = ({values}) => {
+const Product = ({values, addProduct}) => {
   return (
     <Container>
       <img alt='product' src={values.image} />
@@ -40,7 +40,7 @@ const Product = ({values}) => {
         <p>{values.name}</p>
         <Price>${values.price}</Price>
       </div>
-      <Button type='button'>+</Button>
+      <Button type='button' onClick={() => addProduct(values.price)}>+</Button>
     </Container>
   )
 }

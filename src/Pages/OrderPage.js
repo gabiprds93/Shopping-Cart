@@ -40,19 +40,25 @@ const Wrapper = styled.div`
 
 const OrderPage = () => {
   const [searchText, setSearchText] = React.useState('')
+  const [productsPrice, setProductsPrice] = React.useState(0)
+
   const inputHandleChange = (text) => {
     setSearchText(text)
   }
+  const addProduct = (price) => {
+    setProductsPrice(productsPrice + price)
+  }
+  
   return (
     <Container>
       <InputContainer>
         <Searcher inputValue={searchText} inputHandleChange={inputHandleChange}/>
       </InputContainer>
       <Wrapper>
-        <Cart value={searchText}/>
+        <Cart searchText={searchText} addProduct={addProduct}/>
         <div>
           <DeliveryDate />
-          <Pricing />
+          <Pricing productsPrice={productsPrice}/>
           <SubmitButton />
         </div>
       </Wrapper>
