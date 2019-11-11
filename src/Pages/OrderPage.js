@@ -5,7 +5,6 @@ import Searcher from '../Components/Searcher';
 import Cart from '../Components/Cart';
 import DeliveryDate from '../Components/DeliveryDate';
 import Pricing from '../Components/Pricing';
-import SubmitButton from '../Components/SubmitButton';
 
 const Container = styled.div`
   display: flex;
