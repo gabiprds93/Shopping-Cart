@@ -21,8 +21,11 @@ const Button = styled.button`
 `;
 
 const SubmitButton = ({ disabled }) => {
+  const handleClick = () => {
+    window.location.pathname = '/thanks'
+  }
   return (
-    <Button type='button' disabled={disabled}>COMPLETE ORDER</Button>
+    <Button type='button' disabled={disabled} onClick={handleClick}>COMPLETE ORDER</Button>
   )
 }
 
