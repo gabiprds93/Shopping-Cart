@@ -22,6 +22,7 @@ const Container = styled.div`
 const client = new ApolloClient({
   uri: 'https://api-graphql-products.herokuapp.com/graphql'
 });
+
 const App = (
   <ApolloProvider client={client}>
     <Container>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 import imgCar from '../Assets/img/img-car.png'
 
@@ -16,10 +17,21 @@ const Text = styled.span`
 `;
 
 const DeliveryDate = () => {
+  const deliveryDate = React.useMemo(() => {
+    const isoCurrentDayOfWeek = moment().format('E')
+    const isoFriday = 5
+    if(parseInt(isoCurrentDayOfWeek) >= isoFriday){
+      return moment().day(1).format('L')
+    }
+    else{
+      return moment().add(1, 'days').format('L')
+    }
+  }, [])
+
   return (
     <Container>
       <img alt='car' src={imgCar} />
-      <Text>Buy now and get it by <b>05/24/19</b></Text>
+      <Text>Buy now and get it by <b>{deliveryDate}</b></Text>
     </Container>
   )
 }

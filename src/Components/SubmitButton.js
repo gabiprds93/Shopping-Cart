@@ -24,6 +24,7 @@ const SubmitButton = ({ disabled }) => {
   const handleClick = () => {
     window.location.pathname = '/thanks'
   }
+  
   return (
     <Button type='button' disabled={disabled} onClick={handleClick}>COMPLETE ORDER</Button>
   )

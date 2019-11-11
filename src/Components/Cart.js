@@ -55,7 +55,7 @@ const ProductsQuery = ({value, addProduct}) => {
         }).map(product => {
           return <Product key={product.id} values={product} addProduct={addProduct}/>
         })
-        console.log(filterProducts)
+
         if(filterProducts.length){
           return filterProducts
         }
@@ -64,15 +64,15 @@ const ProductsQuery = ({value, addProduct}) => {
         }
       }}
     </Query>
-  );
-};
+  )
+}
 
 const Cart = ({ searchText, addProduct }) => {
   return (
     <Container>
       {searchText !== '' ? 
         <ProductsQuery value={searchText} addProduct={addProduct}/>
-      :
+        :
         <EmptyCart>
           <img alt='cart' src={imgCart} />
           <H2>Your cart is empty</H2>
