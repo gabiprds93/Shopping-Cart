@@ -37,6 +37,13 @@ const Pricing = ({productsPrice}) => {
     return (productsPrice + shippingCost)
   }, [productsPrice, shippingCost])
 
+  const isDisabled = React.useMemo(() => {
+    if(totalPrice < 50)
+      return true
+    else
+      return false
+  }, [totalPrice])
+
   return (
     <Fragment>
       <Container>
@@ -57,7 +64,7 @@ const Pricing = ({productsPrice}) => {
           <span>${totalPrice.toFixed(2)}</span>
         </PriceLine>
       </Container>
-      <SubmitButton />
+      <SubmitButton disabled={isDisabled} />
     </Fragment>
   )
 }
